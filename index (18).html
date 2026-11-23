@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2b1003">
+  <title>BENELLA | Joyería</title>
+  <meta name="description" content="Piezas diseñadas para perdurar. Descubre la colección BENELLA de aretes, pulseras, collares y anillos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--coffee:#2b1003;--coffee2:#3b1b0b;--cream:#fffdf0;--gold:#b99a65;--ink:#26170f;--muted:#76685d}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:"DM Sans",sans-serif}
+    a{color:inherit;text-decoration:none}
+    .topbar{height:72px;padding:0 6vw;display:flex;align-items:center;justify-content:space-between;background:var(--cream);position:sticky;top:0;z-index:10;border-bottom:1px solid #eee7d7}
+    .brand{font-family:"Playfair Display",serif;font-size:27px;letter-spacing:4px;color:var(--coffee);font-weight:600}
+    .nav{display:flex;gap:30px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase}
+    .nav a:hover{color:#9a7542}
+    .menu-btn{display:none;border:0;background:none;font-size:25px;color:var(--coffee)}
+    .hero{position:relative;min-height: min(70vw,690px);height: min(70vw,690px);background:#1b0b04;overflow:hidden}
+    .hero img{width:100%;height:100%;object-fit:cover;object-position:center 43%;display:block;filter:brightness(.8)}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,8,2,.12),rgba(20,8,2,.08))}
+    .hero-copy{position:absolute;z-index:1;left:7%;bottom:11%;color:#fffdf0;max-width:460px}
+    .eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:#e5d4b5}
+    .hero-copy h1{font-family:"Playfair Display",serif;font-size:clamp(36px,6vw,70px);font-weight:500;letter-spacing:5px;margin:12px 0}
+    .hero-copy p{font-size:15px;line-height:1.7;max-width:400px;color:#f4ede4}
+    .intro{max-width:850px;margin:0 auto;padding:65px 24px 30px;text-align:center;font-size:17px;line-height:1.8;color:#43342a}
+    .intro span{color:#9a7542}
+    .section{padding:54px 6vw 78px;max-width:1440px;margin:auto}
+    .section-head{text-align:center;margin-bottom:35px}
+    .section-head .eyebrow{color:#9a7542}
+    .section-head h2{font-family:"Playfair Display",serif;font-size:34px;font-weight:500;letter-spacing:1px;margin:9px 0 0;color:var(--coffee)}
+    .category-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 36px}
+    .category-links a{padding:10px 19px;border:1px solid #d9cbb4;border-radius:30px;font-size:12px;letter-spacing:1.2px;text-transform:uppercase;transition:.2s}
+    .category-links a:hover,.category-links a.active{background:var(--coffee);color:#fffdf0;border-color:var(--coffee)}
+    .category{padding:30px 0 58px;scroll-margin-top:88px}
+    .category-title{display:flex;align-items:center;gap:18px;margin:0 0 24px}
+    .category-title h3{font-family:"Playfair Display",serif;font-weight:500;font-size:27px;margin:0;color:var(--coffee)}
+    .category-title:after{content:"";height:1px;background:#dfd3c0;flex:1}
+    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+    .product{position:relative;text-align:center;min-width:0}
+    .product-photo{background:var(--cream);border:1px solid #73583e;border-radius:5px;overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+    .product-photo img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .35s}
+    .product:hover .product-photo img{transform:scale(1.045)}
+    .product-name{font-size:13px;letter-spacing:.3px;margin:13px 0 5px}
+    .price{font-size:14px;color:#8b6638;font-weight:600}
+    .buy{display:inline-flex;margin-top:12px;padding:9px 17px;border-radius:25px;background:var(--coffee);color:#fffdf0;font-size:11px;letter-spacing:1px;text-transform:uppercase;border:1px solid var(--gold);transition:.2s}
+    .buy:hover,.main-cta:hover{background:#563019}
+    .story{margin:10px 6vw 90px;background:var(--coffee);color:#fffdf0;padding:55px 7%;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .story h2{font-family:"Playfair Display",serif;font-weight:500;font-size:32px;margin:0 0 14px}
+    .story p{line-height:1.8;color:#eee2d2;margin:0;max-width:560px}
+    .story-mark{font-family:"Playfair Display",serif;font-size:clamp(42px,7vw,86px);letter-spacing:7px;text-align:center;color:#fff9e8}
+    .contact{padding:65px 20px 72px;text-align:center;background:var(--cream)}
+    .contact h2{font-family:"Playfair Display",serif;font-weight:500;font-size:34px;margin:0 0 12px;color:var(--coffee)}
+    .contact p{color:#65564a;margin:0 0 25px;line-height:1.7}
+    .main-cta{display:inline-flex;align-items:center;justify-content:center;background:var(--coffee);color:#fffdf0;border:1px solid var(--gold);border-radius:30px;padding:14px 36px;min-width:220px;font-size:13px;letter-spacing:1.3px;transition:.2s}
+    footer{background:#fff;padding:27px 6vw;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    footer .brand{font-size:22px}
+    .socials{display:flex;gap:20px;font-size:12px;letter-spacing:1px}
+    .socials a:hover{color:#9a7542}
+    .copyright{font-size:11px;color:#8a7d72}
+    @media(max-width:800px){.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.hero{height:76vw;min-height:390px}.story{grid-template-columns:1fr;text-align:center}.story p{margin:auto}.story-mark{order:-1}}
+    @media(max-width:560px){
+      .topbar{height:62px;padding:0 5vw}.brand{font-size:23px}.menu-btn{display:block}.nav{display:none;position:absolute;top:61px;left:0;right:0;background:var(--cream);padding:22px 6vw 26px;flex-direction:column;gap:18px;border-bottom:1px solid #eee7d7}.nav.open{display:flex}
+      .hero{height:112vw;min-height:420px;max-height:590px}.hero img{object-position:53% center}.hero-copy{left:7%;right:7%;bottom:8%}.hero-copy h1{font-size:45px}.hero-copy p{font-size:13px}
+      .intro{padding:42px 25px 20px;font-size:15px}.section{padding:38px 5vw 45px}.section-head h2{font-size:29px}.category{padding:22px 0 35px}.category-title h3{font-size:23px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:19px 13px}.product-name{font-size:12px}.buy{font-size:10px;padding:8px 13px}
+      .story{margin:10px 5vw 55px;padding:38px 7%}.story h2,.contact h2{font-size:28px}.story-mark{font-size:48px}.contact{padding:48px 20px 55px}footer{flex-direction:column;text-align:center;padding:25px 5vw}.socials{gap:15px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio">BENELLA</a>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('.nav').classList.toggle('open')">☰</button>
+    <nav class="nav">
+      <a href="#coleccion">Colección</a><a href="#aretes">Aretes</a><a href="#pulseras">Pulseras</a><a href="#collares">Collares</a><a href="#anillos">Anillos</a><a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-label="Colección BENELLA">
+      <img src="assets/hero-benella.jpg" alt="Joyas doradas de la colección BENELLA">
+      <div class="hero-copy">
+        <div class="eyebrow">Detalles que cuentan tu historia</div>
+        <h1>BENELLA</h1>
+        <p>Joyas para acompañarte todos los días y hacer especial cada momento.</p>
+      </div>
+    </section>
+
+    <p class="intro">Piezas diseñadas para perdurar. Nuestra joyería combina metales preciosos y gemas seleccionadas para resaltar tu <span>brillo natural</span> en cada ocasión especial.</p>
+
+    <section class="section" id="coleccion">
+      <div class="section-head"><div class="eyebrow">Descubre tus favoritos</div><h2>NUESTRA COLECCIÓN</h2></div>
+      <div class="category-links">
+        <a href="#aretes">Aretes</a><a href="#pulseras">Pulseras</a><a href="#collares">Collares</a><a href="#anillos">Anillos</a>
+      </div>
+      <div id="catalog"></div>
+    </section>
+
+    <section class="story">
+      <div><div class="eyebrow">BENELLA · JOYERÍA</div><h2>Un brillo que habla de ti.</h2><p>Encuentra esa pieza que completa tu estilo. Diseños versátiles, detalles delicados y un toque dorado para cada ocasión.</p></div>
+      <div class="story-mark">BENELLA</div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="eyebrow">Estamos para ayudarte</div>
+      <h2>¿Lista para elegir tu favorita?</h2>
+      <p>Escríbenos y te ayudamos a encontrar la pieza ideal.</p>
+      <a class="main-cta" id="whatsapp-main" href="#contacto">COMPRA AQUÍ</a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#inicio">BENELLA</a>
+    <div class="socials"><a id="instagram-link" href="#contacto">INSTAGRAM</a><a id="whatsapp-footer" href="#contacto">WHATSAPP</a></div>
+    <div class="copyright">© <span id="year"></span> BENELLA</div>
+  </footer>
+
+  <script>
+    // PERSONALIZA ESTOS DATOS ANTES DE PUBLICAR:
+    // WhatsApp: código de país + número, sin +, espacios ni guiones. Ejemplo: 5218112345678
+    const WHATSAPP_NUMBER = "521XXXXXXXXXX";
+    const INSTAGRAM_URL = "https://www.instagram.com/"; // Reemplaza por el perfil de BENELLA.
+
+    const collections = [
+      {id:"aretes", name:"ARETES", items:[
+        ["Aretes corazón cristal","aretes-1.jpg"],["Aretes corazón negro","aretes-2.jpg"],["Aretes corazón rosa","aretes-3.jpg"],["Aretes dorados texturizados","aretes-4.jpg"],["Aretes ondas doradas","aretes-5.jpg"],["Aretes nudo","aretes-6.jpg"],["Aretes flor","aretes-7.jpg"]
+      ]},
+      {id:"pulseras", name:"PULSERAS", items:[
+        ["Pulsera eslabones","pulseras-1.jpg"],["Pulsera trébol negro","pulseras-2.jpg"],["Pulsera trébol rosa","pulseras-3.jpg"],["Pulsera trébol verde","pulseras-4.jpg"]
+      ]},
+      {id:"collares", name:"COLLARES", items:[
+        ["Collar corazón clásico","collares-1.jpg"],["Collar corazón dorado","collares-2.jpg"],["Collar corazón abierto","collares-3.jpg"]
+      ]},
+      {id:"anillos", name:"ANILLOS", items:[
+        ["Anillo sello dorado","anillos-1.jpg"],["Anillo circonias","anillos-2.jpg"],["Anillo delicado","anillos-3.jpg"],["Anillo diseño geométrico","anillos-4.jpg"],["Anillo cruzado","anillos-5.jpg"],["Anillo flor y perla","anillos-6.jpg"],["Anillo estrella","anillos-7.jpg"],["Anillo floral","anillos-8.jpg"],["Anillo estrella dorada","anillos-9.jpg"]
+      ]}
+    ];
+
+    const numberReady = WHATSAPP_NUMBER && !WHATSAPP_NUMBER.includes("X");
+    const whatsappUrl = (message) => numberReady
+      ? `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`
+      : "#contacto";
+
+    const catalog = document.getElementById("catalog");
+    collections.forEach(group => {
+      const section = document.createElement("section");
+      section.className = "category";
+      section.id = group.id;
+      section.innerHTML = `<div class="category-title"><h3>${group.name}</h3></div><div class="products"></div>`;
+      const grid = section.querySelector(".products");
+      group.items.forEach(([name, image]) => {
+        const card = document.createElement("article");
+        card.className = "product";
+        card.innerHTML = `
+          <div class="product-photo"><img src="assets/${image}" alt="${name}" loading="lazy"></div>
+          <div class="product-name">${name}</div>
+          <div class="price">$350 MXN</div>
+          <a class="buy" href="${whatsappUrl("Hola, me interesa " + name + " de BENELLA.")}" target="_blank" rel="noopener">Consultar</a>`;
+        grid.appendChild(card);
+      });
+      catalog.appendChild(section);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("instagram-link").href = INSTAGRAM_URL;
+    document.getElementById("whatsapp-main").href = whatsappUrl("Hola, quiero conocer la colección BENELLA.");
+    document.getElementById("whatsapp-footer").href = whatsappUrl("Hola, quiero información de BENELLA.");
+    document.querySelectorAll(".nav a").forEach(link => link.addEventListener("click", () => document.querySelector(".nav").classList.remove("open")));
+  </script>
+</body>
+</html>
